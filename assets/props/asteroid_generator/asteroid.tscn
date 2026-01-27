@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cxoxmv08kgo8p"]
+
+[ext_resource type="Script" uid="uid://gy21cnufjenh" path="res://assets/props/asteroid_generator/asteroid_generator.gd" id="1_h6vsq"]
+[ext_resource type="Shader" uid="uid://70kqxyfky8o5" path="res://assets/shaders/asteroid_generator.gdshader" id="1_jdno0"]
+[ext_resource type="Texture2D" uid="uid://dh8sgagfevt5j" path="res://assets/props/asteroid_generator/textures/Rock035_1K-JPG/Rock035_1K-JPG_Color.jpg" id="2_h6vsq"]
+[ext_resource type="Texture2D" uid="uid://dlmx1cidt7s30" path="res://assets/props/asteroid_generator/textures/Rock055_1K-JPG/Rock055_1K-JPG_Color.jpg" id="3_ibxuj"]
+[ext_resource type="Texture2D" uid="uid://dcd7sr7m8m8df" path="res://assets/props/asteroid_generator/textures/Rock031_1K-JPG/Rock031_1K-JPG_Color.jpg" id="4_h3lvc"]
+
+[sub_resource type="Gradient" id="Gradient_w4cf0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h3lvc"]
+seed = -5552
+frequency = 0.07
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dfpld"]
+noise = SubResource("FastNoiseLite_h3lvc")
+color_ramp = SubResource("Gradient_w4cf0")
+in_3d_space = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ibxuj"]
+render_priority = 0
+shader = ExtResource("1_jdno0")
+shader_parameter/noise_tex = SubResource("NoiseTexture2D_dfpld")
+shader_parameter/tex = ExtResource("2_h6vsq")
+shader_parameter/strength = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_ibxuj"]
+material = SubResource("ShaderMaterial_ibxuj")
+radial_segments = 16
+rings = 8
+
+[node name="asteroid" type="Node3D" unique_id=1122756638]
+script = ExtResource("1_h6vsq")
+seed = -5552
+color_ramp = SubResource("Gradient_w4cf0")
+textures = Array[Texture2D]([ExtResource("2_h6vsq"), ExtResource("3_ibxuj"), ExtResource("4_h3lvc")])
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=726130277]
+mesh = SubResource("SphereMesh_ibxuj")
+skeleton = NodePath("")
