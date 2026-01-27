@@ -8,8 +8,33 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="godoband-game"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://62hmnr8raqsl"
+
+[autoload]
+
+EventBus="*uid://dowhyre128lv0"
+DebugOutput="*uid://c8x2dc106i6qy"
+SettingsGlobal="*uid://dg1xejlj3r2te"
+SceneManager="*uid://dltdjjuimjvgr"
+
+[debug]
+
+gdscript/warnings/unused_signal=0
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/aspect="ignore"

@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://fl7yhescggob"]
+
+[ext_resource type="Script" uid="uid://dqb7ive6pn7hy" path="res://scripts/base_classes/ui/CAspectRatioContainer.gd" id="1_1vha8"]
+[ext_resource type="Script" uid="uid://byme1ki3xniri" path="res://scripts/base_classes/ui/UISounds.gd" id="2_y0upq"]
+[ext_resource type="Texture2D" uid="uid://df8iskehn75n8" path="res://icon.svg" id="3_nt1ww"]
+[ext_resource type="Script" uid="uid://dcl1xxje2pex1" path="res://scripts/base_classes/ui/ScrollContainerMouse.gd" id="4_8nfk8"]
+[ext_resource type="PackedScene" uid="uid://dj3g0pftrc1i6" path="res://scenes/ui/inventory_item.tscn" id="5_3nifv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8nfk8"]
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="GUI" type="CanvasLayer" unique_id=174544437]
+
+[node name="UISounds" type="Node" parent="." unique_id=492355653]
+script = ExtResource("2_y0upq")
+metadata/_custom_type_script = "uid://byme1ki3xniri"
+
+[node name="CAspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=244675990]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+ratio = 1.7778
+script = ExtResource("1_1vha8")
+
+[node name="Margin" type="MarginContainer" parent="CAspectRatioContainer" unique_id=519660938]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ActualUI" type="Control" parent="CAspectRatioContainer/Margin" unique_id=980803912]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI" unique_id=689586107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1475613459]
+custom_minimum_size = Vector2(381, 0)
+layout_mode = 2
+size_flags_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer" unique_id=2117034400]
+layout_mode = 2
+
+[node name="ScrollContainerMouse" type="ScrollContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1770058721]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("4_8nfk8")
+
+[node name="InventoryContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse" unique_id=98561539]
+layout_mode = 2
+
+[node name="InventoryItem" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=308327283 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem2" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1135793968 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem3" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1094881182 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem4" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=859154999 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem5" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=915522460 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem6" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1409773951 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem7" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1009387422 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem8" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1793841669 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem9" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1322884299 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem10" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=2061745223 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem11" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1169915251 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem12" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=259992845 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem13" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=2091107197 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem14" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1793424542 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="InventoryItem15" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse/InventoryContainer" unique_id=1857887127 instance=ExtResource("5_3nifv")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1346090352]
+layout_mode = 2
+text = "10/10KG"
+horizontal_alignment = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=822191827]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nt1ww")
+
+[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar" unique_id=1485510421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "С
+М
+А
+З
+К
+А"
+label_settings = SubResource("LabelSettings_8nfk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=833263285]
+self_modulate = Color(1, 0.8352941, 0, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nt1ww")
+
+[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar2" unique_id=625966933]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Р
+Е
+З
+Е
+Р
+В"
+label_settings = SubResource("LabelSettings_8nfk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=338285725]
+self_modulate = Color(0, 1, 0, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nt1ww")
+
+[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar3" unique_id=601437379]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Е
+Н
+Е
+Р
+Г
+И
+Я"
+label_settings = SubResource("LabelSettings_8nfk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1807211082]
+self_modulate = Color(1, 0, 0, 1)
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_progress = ExtResource("3_nt1ww")
+
+[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar4" unique_id=497978452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "З
+Д
+О
+Р
+О
+В
+Ь
+Е"
+label_settings = SubResource("LabelSettings_8nfk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
