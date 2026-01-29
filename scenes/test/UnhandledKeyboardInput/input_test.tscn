@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b42h16etn7xld"]
+
+[ext_resource type="Script" uid="uid://cewrcha4v4sts" path="res://scripts/base_classes/UnhandledKeyboardInput.gd" id="1_sd8h4"]
+[ext_resource type="Script" uid="uid://brwil1yfjd25f" path="res://scenes/test/UnhandledKeyboardInput/input_label.gd" id="2_ij38c"]
+
+[node name="input_test" type="Node" unique_id=2008477012]
+script = ExtResource("1_sd8h4")
+
+[node name="Label" type="Label" parent="." unique_id=188086183]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("2_ij38c")
