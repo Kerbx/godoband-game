@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://dboam0e75nvqu"]
+
+[ext_resource type="FontFile" uid="uid://citwv82th0rdp" path="res://assets/ui/fonts/playfair_display/PlayfairDisplay-Regular.ttf" id="1_tf5ee"]
+
+[resource]
+default_font = ExtResource("1_tf5ee")
+Label/fonts/font = ExtResource("1_tf5ee")
