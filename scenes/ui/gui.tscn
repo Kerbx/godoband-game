@@ -1,15 +1,50 @@
 [gd_scene format=3 uid="uid://fl7yhescggob"]
 
 [ext_resource type="Script" uid="uid://dqb7ive6pn7hy" path="res://scripts/base_classes/ui/CAspectRatioContainer.gd" id="1_1vha8"]
+[ext_resource type="Theme" uid="uid://dboam0e75nvqu" path="res://project_theme.tres" id="2_suhd1"]
 [ext_resource type="Script" uid="uid://byme1ki3xniri" path="res://scripts/base_classes/ui/UISounds.gd" id="2_y0upq"]
-[ext_resource type="Texture2D" uid="uid://df8iskehn75n8" path="res://icon.svg" id="3_nt1ww"]
 [ext_resource type="Script" uid="uid://dcl1xxje2pex1" path="res://scripts/base_classes/ui/ScrollContainerMouse.gd" id="4_8nfk8"]
 [ext_resource type="PackedScene" uid="uid://dj3g0pftrc1i6" path="res://scenes/ui/inventory_item.tscn" id="5_3nifv"]
 
+[sub_resource type="Gradient" id="Gradient_bb880"]
+offsets = PackedFloat32Array(0.19, 0.2, 1)
+colors = PackedColorArray(0.65882355, 0.65882355, 0.65882355, 0.11764706, 1, 1, 1, 0.11764706, 1, 1, 1, 0.49803922)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_suhd1"]
+gradient = SubResource("Gradient_bb880")
+width = 16
+height = 16
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.50213677)
+
+[sub_resource type="Gradient" id="Gradient_suhd1"]
+offsets = PackedFloat32Array(0.19, 0.2, 1)
+colors = PackedColorArray(0.65882355, 0.65882355, 0.65882355, 0.78431374, 1, 1, 1, 0.78431374, 1, 1, 1, 0.78431374)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kb6ab"]
+gradient = SubResource("Gradient_suhd1")
+width = 16
+height = 16
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.50213677)
+
 [sub_resource type="LabelSettings" id="LabelSettings_8nfk8"]
-font_size = 32
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_o64uq"]
+gradient = SubResource("Gradient_bb880")
+width = 16
+height = 16
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.50213677)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_n02pe"]
+gradient = SubResource("Gradient_bb880")
+width = 16
+height = 16
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.50213677)
 
 [node name="GUI" type="CanvasLayer" unique_id=174544437]
 
@@ -23,6 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_suhd1")
 ratio = 1.7778
 script = ExtResource("1_1vha8")
 
@@ -43,12 +79,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1475613459]
 custom_minimum_size = Vector2(381, 0)
 layout_mode = 2
-size_flags_horizontal = 2
+size_flags_horizontal = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer" unique_id=2117034400]
 layout_mode = 2
@@ -57,6 +92,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("4_8nfk8")
+metadata/_edit_group_ = true
 
 [node name="InventoryContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainerMouse" unique_id=98561539]
 layout_mode = 2
@@ -108,18 +144,66 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/MarginContainer/VBoxContainer" unique_id=1346090352]
 layout_mode = 2
-text = "10/10KG"
+text = "Вес: 8.5/10kg"
 horizontal_alignment = 1
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=822191827]
-custom_minimum_size = Vector2(50, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1755797604]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Control" type="Control" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer" unique_id=1170004364]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer" unique_id=300765452]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="HealthBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1807211082]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = ExtResource("3_nt1ww")
+texture_over = SubResource("GradientTexture2D_suhd1")
+texture_progress = SubResource("GradientTexture2D_kb6ab")
+tint_progress = Color(1, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar" unique_id=1485510421]
+[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/HealthBar" unique_id=497978452]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "З
+Д
+0
+Р
+0
+В
+Ь
+Е"
+label_settings = SubResource("LabelSettings_8nfk8")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="OilBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=822191827]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+value = 100.0
+fill_mode = 3
+nine_patch_stretch = true
+texture_over = SubResource("GradientTexture2D_o64uq")
+texture_progress = SubResource("GradientTexture2D_kb6ab")
+tint_progress = Color(0, 0, 1, 1)
+
+[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/OilBar" unique_id=1485510421]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -136,49 +220,29 @@ label_settings = SubResource("LabelSettings_8nfk8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar2" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=833263285]
-self_modulate = Color(1, 0.8352941, 0, 1)
-custom_minimum_size = Vector2(50, 0)
+[node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=778116269]
 layout_mode = 2
+
+[node name="FuelBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=338285725]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 25)
+layout_mode = 2
+size_flags_vertical = 3
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = ExtResource("3_nt1ww")
+texture_over = SubResource("GradientTexture2D_n02pe")
+texture_progress = SubResource("GradientTexture2D_kb6ab")
+tint_progress = Color(0, 1, 0, 1)
 
-[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar2" unique_id=625966933]
+[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/FuelBar" unique_id=1179634274]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Р
-Е
-З
-Е
-Р
-В"
-label_settings = SubResource("LabelSettings_8nfk8")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="TextureProgressBar3" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=338285725]
-self_modulate = Color(0, 1, 0, 1)
-custom_minimum_size = Vector2(50, 0)
-layout_mode = 2
-value = 100.0
-fill_mode = 3
-nine_patch_stretch = true
-texture_progress = ExtResource("3_nt1ww")
-
-[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar3" unique_id=601437379]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Е
+text = "Э
 Н
 Е
 Р
@@ -189,32 +253,28 @@ label_settings = SubResource("LabelSettings_8nfk8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureProgressBar4" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1807211082]
-self_modulate = Color(1, 0, 0, 1)
-custom_minimum_size = Vector2(50, 0)
+[node name="ReserveBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=833263285]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
 value = 100.0
 fill_mode = 3
 nine_patch_stretch = true
-texture_progress = ExtResource("3_nt1ww")
+texture_over = SubResource("GradientTexture2D_suhd1")
+texture_progress = SubResource("GradientTexture2D_kb6ab")
+tint_progress = Color(1, 0.8352941, 0, 1)
 
-[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/TextureProgressBar4" unique_id=497978452]
+[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/ReserveBar" unique_id=625966933]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "З
-Д
-О
-Р
-О
-В
-Ь
-Е"
+text = "РЕЗ
+ЕРВ"
 label_settings = SubResource("LabelSettings_8nfk8")
 horizontal_alignment = 1
 vertical_alignment = 1
-autowrap_mode = 1
-clip_text = true
