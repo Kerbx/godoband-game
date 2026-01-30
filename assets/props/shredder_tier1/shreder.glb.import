@@ -1,0 +1,85 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://c448wpi02t6fs"
+path="res://.godot/imported/shreder.glb-8ca8ca93905f016366875a5e75cbb0d5.scn"
+
+[deps]
+
+source_file="res://assets/props/shredder_tier1/shreder.glb"
+dest_files=["res://.godot/imported/shreder.glb-8ca8ca93905f016366875a5e75cbb0d5.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=false
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path="res://assets/props/shredder_tier1/textures"
+_subresources={
+"materials": {
+"button": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/button.tres",
+"use_external/path": "uid://ch1dl20j2ye5u"
+},
+"circular_metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/circular_metal.tres",
+"use_external/path": "uid://recefaitn448"
+},
+"conveyor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/conveyor.tres",
+"use_external/path": "uid://dvnblgsv6ycqu"
+},
+"metal": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/metal.tres",
+"use_external/path": "uid://dxcn7wv6ka11c"
+},
+"roller": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/roller.tres",
+"use_external/path": "uid://j2xt2j2a7kqx"
+},
+"stand_panel": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/stand_panel.tres",
+"use_external/path": "uid://cio5ngbcc781q"
+},
+"warning": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/warning.tres",
+"use_external/path": "uid://llhtfopxlfsk"
+},
+"wire_connection": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://assets/props/shredder_tier1/materials/wire_connection.tres",
+"use_external/path": "uid://bh2dx638hkt03"
+}
+}
+}
+gltf/naming_version=2
+gltf/embedded_image_handling=2
