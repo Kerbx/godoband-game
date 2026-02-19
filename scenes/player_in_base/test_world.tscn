@@ -115,7 +115,7 @@ shadow_enabled = true
 omni_range = 8.587352
 
 [node name="Terminal" parent="." unique_id=2050385956 instance=ExtResource("2_qnwd6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2094674, -1.6610594, -15.809924)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2094674, 0.038940668, -14.109924)
 
 [node name="shredder_tier1" parent="." unique_id=1042572349 instance=ExtResource("3_jcwyk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.359777, -0.008289099, 1.8823547)

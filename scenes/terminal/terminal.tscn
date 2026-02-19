@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://cavtkjcuul3iy" path="res://assets/props/terminal/terminal.glb" id="3_m4hbx"]
 [ext_resource type="Resource" uid="uid://de7xms2ymahrx" path="res://scripts/base_classes/terminal/commands/r_help_command.tres" id="4_drxfo"]
 [ext_resource type="Resource" uid="uid://cfemyeht61yuf" path="res://scripts/base_classes/terminal/commands/r_login_command.tres" id="5_2jfs2"]
+[ext_resource type="Script" uid="uid://b4rbt2jaeci50" path="res://scripts/base_classes/camera_animation.gd" id="9_drxfo"]
 
 [node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("input_thing", "input_label", "log_rich_text_label")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
 script = ExtResource("1_2y7k8")
 input_thing = NodePath("UnhandledKeyboardInput")
 input_label = NodePath("SubViewport/terminal_ui/VBoxContainer/Label")
@@ -32,6 +32,11 @@ fit_content = true
 autowrap_mode = 1
 
 [node name="terminal" parent="." unique_id=94069392 instance=ExtResource("3_m4hbx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59999996, 0.49999997)
+
+[node name="camera_placement" type="Marker3D" parent="." unique_id=1193700963]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 1.8000001, 0.7)
+script = ExtResource("9_drxfo")
 
 [editable path="SubViewport/terminal_ui"]
