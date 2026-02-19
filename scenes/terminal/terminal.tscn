@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dttd472nm4xp8"]
+
+[ext_resource type="Script" uid="uid://b85trg4u6r67" path="res://scenes/terminal/terminal.gd" id="1_2y7k8"]
+[ext_resource type="Script" uid="uid://cewrcha4v4sts" path="res://scripts/base_classes/UnhandledKeyboardInput.gd" id="2_0uvmq"]
+[ext_resource type="PackedScene" uid="uid://dooybj61gkfxi" path="res://scenes/terminal/terminal_ui.tscn" id="2_2y7k8"]
+[ext_resource type="Script" uid="uid://bpcwvxm5l7ko2" path="res://scripts/base_classes/terminal/TerminalCommand.gd" id="2_171q7"]
+[ext_resource type="Resource" uid="uid://rh2x0aa8kfhw" path="res://scripts/base_classes/terminal/commands/r_clear_command.tres" id="3_chhtq"]
+[ext_resource type="PackedScene" uid="uid://cavtkjcuul3iy" path="res://assets/props/terminal/terminal.glb" id="3_m4hbx"]
+[ext_resource type="Resource" uid="uid://de7xms2ymahrx" path="res://scripts/base_classes/terminal/commands/r_help_command.tres" id="4_drxfo"]
+[ext_resource type="Resource" uid="uid://cfemyeht61yuf" path="res://scripts/base_classes/terminal/commands/r_login_command.tres" id="5_2jfs2"]
+
+[node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("input_thing", "input_label", "log_rich_text_label")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.7, 0)
+script = ExtResource("1_2y7k8")
+input_thing = NodePath("UnhandledKeyboardInput")
+input_label = NodePath("SubViewport/terminal_ui/VBoxContainer/Label")
+log_rich_text_label = NodePath("SubViewport/terminal_ui/VBoxContainer/RichTextLabel")
+commands = Array[ExtResource("2_171q7")]([ExtResource("3_chhtq"), ExtResource("4_drxfo"), ExtResource("5_2jfs2")])
+
+[node name="UnhandledKeyboardInput" type="Node" parent="." unique_id=1038186003]
+script = ExtResource("2_0uvmq")
+metadata/_custom_type_script = "uid://cewrcha4v4sts"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=848450309]
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+
+[node name="terminal_ui" parent="SubViewport" unique_id=1692158581 instance=ExtResource("2_2y7k8")]
+
+[node name="RichTextLabel" parent="SubViewport/terminal_ui/VBoxContainer" parent_id_path=PackedInt32Array(1692158581, 1927345821) index="0" unique_id=599198766]
+fit_content = true
+autowrap_mode = 1
+
+[node name="terminal" parent="." unique_id=94069392 instance=ExtResource("3_m4hbx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3, 2)
+
+[editable path="SubViewport/terminal_ui"]

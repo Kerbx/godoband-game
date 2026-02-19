@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://de7xms2ymahrx"]
+
+[ext_resource type="Script" uid="uid://cskl5qwmil7wf" path="res://scripts/base_classes/terminal/commands/help_command.gd" id="1_rg65w"]
+
+[resource]
+script = ExtResource("1_rg65w")
+metadata/_custom_type_script = "uid://bpcwvxm5l7ko2"
