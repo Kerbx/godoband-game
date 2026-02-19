@@ -55,3 +55,4 @@ scroll_active = false
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=116786965]
 layout_mode = 2
 text = "login:"
+autowrap_mode = 1

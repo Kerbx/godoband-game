@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://buhcdvc776pen" path="res://scenes/player_in_base/player_in_base.tscn" id="1_2nnkd"]
 [ext_resource type="PackedScene" uid="uid://dttd472nm4xp8" path="res://scenes/terminal/terminal.tscn" id="2_qnwd6"]
+[ext_resource type="PackedScene" uid="uid://bat8ondx0bdqh" path="res://scenes/shredder_tier1/shredder_tier1.tscn" id="3_jcwyk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xywji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -32,7 +33,7 @@ use_collision = true
 size = Vector3(22.811188, 0.07788086, 25.483643)
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=1492967513]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.395706, 3.9440932, -2.6766357)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.395706, 7.944093, -2.6766357)
 use_collision = true
 size = Vector3(22.811188, 0.07788086, 25.483643)
 
@@ -115,3 +116,6 @@ omni_range = 8.587352
 
 [node name="Terminal" parent="." unique_id=2050385956 instance=ExtResource("2_qnwd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2094674, -1.6610594, -15.809924)
+
+[node name="shredder_tier1" parent="." unique_id=1042572349 instance=ExtResource("3_jcwyk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.359777, -0.008289099, 1.8823547)
