@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boemyf1bx1hdk"]
 
 [ext_resource type="PackedScene" uid="uid://buhcdvc776pen" path="res://scenes/player_in_base/player_in_base.tscn" id="1_2nnkd"]
+[ext_resource type="PackedScene" uid="uid://dttd472nm4xp8" path="res://scenes/terminal/terminal.tscn" id="2_qnwd6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xywji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -111,3 +112,6 @@ omni_range = 8.587352
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.507403, 3.59135, -2.0920844)
 shadow_enabled = true
 omni_range = 8.587352
+
+[node name="Terminal" parent="." unique_id=2050385956 instance=ExtResource("2_qnwd6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2094674, -1.6610594, -15.809924)

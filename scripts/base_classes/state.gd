@@ -20,9 +20,9 @@ func exit():
 	pass
 
 
-func update(delta):
+func update(_delta):
 	pass
 	
 
-func phyisic_update(delta):
+func phyisic_update(_delta):
 	pass

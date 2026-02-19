@@ -1,0 +1,7 @@
+[gd_resource type="Resource" format=3 uid="uid://cfemyeht61yuf"]
+
+[ext_resource type="Script" uid="uid://6m2eu2kbrqn0" path="res://scripts/base_classes/terminal/commands/login_command.gd" id="1_7fsmx"]
+
+[resource]
+script = ExtResource("1_7fsmx")
+metadata/_custom_type_script = "uid://bpcwvxm5l7ko2"

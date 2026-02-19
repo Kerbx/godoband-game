@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cavtkjcuul3iy"
-path="res://.godot/imported/terminal.glb-aba66b91f8d1f6eabbf6474b1ef37861.scn"
+uid="uid://o8cvtnwsxsxs"
+path="res://.godot/imported/robot.glb-e59556e78a0bb97f0b75824494e8e6d6.scn"
 
 [deps]
 
-source_file="res://assets/props/terminal/terminal.glb"
-dest_files=["res://.godot/imported/terminal.glb-aba66b91f8d1f6eabbf6474b1ef37861.scn"]
+source_file="res://scenes/player_in_base/robot.glb"
+dest_files=["res://.godot/imported/robot.glb-e59556e78a0bb97f0b75824494e8e6d6.scn"]
 
 [params]
 
@@ -17,7 +17,7 @@ nodes/root_type=""
 nodes/root_name=""
 nodes/root_script=null
 nodes/apply_root_scale=true
-nodes/root_scale=0.25
+nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
 nodes/use_name_suffixes=true
 nodes/use_node_type_suffixes=true

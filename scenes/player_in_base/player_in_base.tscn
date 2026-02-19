@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://buhcdvc776pen"]
 
-[ext_resource type="Script" uid="uid://dargsoj0p7pln" path="res://scenes/player_in_base/state_machine.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://dargsoj0p7pln" path="res://scripts/base_classes/state_machine.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bpfi4r4pbjbsb" path="res://scenes/player_in_base/player_in_base.gd" id="1_gmlin"]
-[ext_resource type="Texture2D" uid="uid://dsjdhg3vnd6oa" path="res://scenes/player_in_base/crosshair.png" id="3_g1dw6"]
+[ext_resource type="Texture2D" uid="uid://bsqymoovd5a1p" path="res://assets/player/ui/crosshair.png" id="3_g1dw6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p8tv"]
 
@@ -379,13 +379,12 @@ func enter():
 	tween.tween_property(player.camera, \"transform:origin\", Vector3.ZERO, 0.25)
 
 
-func phyisic_update(delta):
+func phyisic_update(_delta):
 	if player.input_dir.length() > 0:
 		state_machine.change_state(\"walk\")
 		
 		if Input.is_action_pressed(\"run\"):
 			state_machine.change_state(\"run\")
-	
 "
 
 [sub_resource type="GDScript" id="GDScript_g1dw6"]
@@ -397,7 +396,7 @@ script/source = "extends State
 func enter():
 	player.speed = player.speed_walk
 
-func phyisic_update(delta):
+func phyisic_update(_delta):
 	if player.input_dir.length() == 0:
 		state_machine.change_state(\"idle\")
 	
@@ -428,7 +427,7 @@ func exit():
 	var tween = create_tween()
 	tween.tween_property(player.head, \"rotation_degrees:x\", player.head.rotation_degrees.x + cam_shake_power/2, cam_shake_time).set_ease(Tween.EASE_OUT)
 
-func phyisic_update(delta):
+func phyisic_update(_delta):
 	if Input.is_action_just_released(\"run\"):
 		state_machine.change_state(\"idle\")
 	
@@ -449,7 +448,7 @@ func exit():
 	tween.tween_property(player.head, \"rotation_degrees:x\", player.head.rotation_degrees.x - clamp(falling_velocity,0, 55), 0.05).set_ease(Tween.EASE_OUT)
 	
 	
-func phyisic_update(delta):
+func phyisic_update(_delta):
 	if abs(player.velocity.y) > 0.1:
 		falling_velocity = abs(player.velocity.y)
 		
@@ -483,7 +482,7 @@ script/source = "extends CanvasLayer
 
 # INFO: Функции:
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	velocity_label.text = \"Velocity: %s\" % player.velocity
 	speed_label.text = \"Speed: %s\" % player.speed
 	current_state_label.text = \"Current state: %s\" % player.state_machine.current_state.name
