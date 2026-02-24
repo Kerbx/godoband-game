@@ -1,4 +1,6 @@
+class_name CameraTweener
 extends Node
+
 
 @export var trans_type : Tween.TransitionType = Tween.TRANS_SINE
 @export var ease_type : Tween.EaseType = Tween.EASE_IN_OUT
@@ -68,5 +70,6 @@ func play(
 		await tween.finished
 		
 		original_camera.make_current()
-		animated_camera.queue_free()
+		if is_instance_valid(animated_camera):
+			animated_camera.queue_free()
 		animated_camera = null

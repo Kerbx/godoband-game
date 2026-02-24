@@ -8,18 +8,54 @@
 [ext_resource type="PackedScene" uid="uid://cavtkjcuul3iy" path="res://assets/props/terminal/terminal.glb" id="3_m4hbx"]
 [ext_resource type="Resource" uid="uid://de7xms2ymahrx" path="res://scripts/base_classes/terminal/commands/r_help_command.tres" id="4_drxfo"]
 [ext_resource type="Resource" uid="uid://cfemyeht61yuf" path="res://scripts/base_classes/terminal/commands/r_login_command.tres" id="5_2jfs2"]
+[ext_resource type="Script" uid="uid://dargsoj0p7pln" path="res://scripts/base_classes/state_machine.gd" id="7_0mkqh"]
+[ext_resource type="Script" uid="uid://c7lw30yplpivp" path="res://scenes/terminal/idle_state.gd" id="8_dq3k5"]
+[ext_resource type="Script" uid="uid://b88eomu0kt2dt" path="res://scenes/terminal/active_state.gd" id="9_dq3k5"]
 [ext_resource type="Script" uid="uid://b4rbt2jaeci50" path="res://scripts/base_classes/camera_animation.gd" id="9_drxfo"]
+[ext_resource type="Script" uid="uid://vtt7bibvggiy" path="res://scripts/base_classes/interact_classes/interactable_object.gd" id="10_7eo3p"]
+[ext_resource type="Script" uid="uid://ce7og5svm4oao" path="res://scenes/terminal/interaction_open_terminal.gd" id="12_fp2rj"]
 
-[node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("input_thing", "input_label", "log_rich_text_label")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_drxfo"]
+size = Vector3(1, 2, 1)
+
+[node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("input_thing", "input_label", "log_rich_text_label", "camera_placement", "state_machine")]
 script = ExtResource("1_2y7k8")
 input_thing = NodePath("UnhandledKeyboardInput")
 input_label = NodePath("SubViewport/terminal_ui/VBoxContainer/Label")
 log_rich_text_label = NodePath("SubViewport/terminal_ui/VBoxContainer/RichTextLabel")
+camera_placement = NodePath("camera_placement")
+state_machine = NodePath("state_machine")
 commands = Array[ExtResource("2_171q7")]([ExtResource("3_chhtq"), ExtResource("4_drxfo"), ExtResource("5_2jfs2")])
 
 [node name="UnhandledKeyboardInput" type="Node" parent="." unique_id=1038186003]
 script = ExtResource("2_0uvmq")
+disabled = true
 metadata/_custom_type_script = "uid://cewrcha4v4sts"
+
+[node name="state_machine" type="Node" parent="." unique_id=650562419 node_paths=PackedStringArray("init_state")]
+script = ExtResource("7_0mkqh")
+init_state = NodePath("idle_state")
+metadata/_custom_type_script = "uid://dargsoj0p7pln"
+
+[node name="idle_state" type="Node" parent="state_machine" unique_id=149090552]
+script = ExtResource("8_dq3k5")
+metadata/_custom_type_script = "uid://10pyhf7ptwpk"
+
+[node name="active_state" type="Node" parent="state_machine" unique_id=1972966651]
+script = ExtResource("9_dq3k5")
+metadata/_custom_type_script = "uid://dipjqhdr7e8og"
+
+[node name="InteractableObject" type="StaticBody3D" parent="." unique_id=1124149005]
+script = ExtResource("10_7eo3p")
+
+[node name="interaction_open_terminal" type="Node" parent="InteractableObject" unique_id=14863548]
+script = ExtResource("12_fp2rj")
+action_name = &"Open Terminal"
+hold_duration = 0.25
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableObject" unique_id=353313063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("BoxShape3D_drxfo")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=848450309]
 handle_input_locally = false
@@ -31,7 +67,7 @@ canvas_item_default_texture_filter = 0
 fit_content = true
 autowrap_mode = 1
 
-[node name="terminal" parent="." unique_id=94069392 instance=ExtResource("3_m4hbx")]
+[node name="model" parent="." unique_id=94069392 instance=ExtResource("3_m4hbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59999996, 0.49999997)
 
 [node name="camera_placement" type="Marker3D" parent="." unique_id=1193700963]

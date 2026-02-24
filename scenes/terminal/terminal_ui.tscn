@@ -29,30 +29,8 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
-text = "[    0.000000] Initializing system core...
-[    0.012418] Loading kernel modules...
-[    0.045902] CPU detected: x86_64 @ 3.60GHz
-[    0.046113] Memory check: 256 MB OK
-[    0.071554] Mounting virtual file systems...
-[    0.093287] /dev/root mounted successfully
-[    0.120441] Initializing I/O subsystems...
-[    0.148772] Network interface eth0 up
-[    0.176904] DHCP request sent...
-[    0.241118] IP address acquired: 192.168.1.42
-[    0.278993] Starting system services...
-[    0.301552] Service manager: OK
-[    0.337119] Time synchronization complete
-[    0.369840] Security layer enabled
-[    0.402117] Checking system integrity...
-[    0.441233] Integrity check passed
-[    0.477891] Launching user environment...
-[    0.512004] Initializing terminal interface...
-
-System ready.
-"
 scroll_active = false
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=116786965]
 layout_mode = 2
-text = "login:"
 autowrap_mode = 1

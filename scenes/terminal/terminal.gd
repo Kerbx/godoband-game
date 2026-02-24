@@ -5,8 +5,11 @@ extends Node3D
 @export var input_label : Label
 @export var log_rich_text_label : RichTextLabel
 
-@onready var terminal_screen: MeshInstance3D = $terminal/terminal_screen
+@onready var terminal_screen: MeshInstance3D = $model/terminal_screen
 @onready var sub_viewport: SubViewport = $SubViewport
+
+@export var camera_placement : CameraTweener
+@export var state_machine : StateMachine
 
 @export var commands : Array[TerminalCommand]
 

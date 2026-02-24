@@ -21,6 +21,7 @@ signal player_movement_enable
 
 @export_category("Nodes:")
 @export var state_machine: StateMachine
+@export var _interactor : Interactor
 @export var camera : Camera3D
 @export var head : Node3D
 @export var mesh_body: Node3D
@@ -57,10 +58,17 @@ func _ready() -> void:
 func movement_disable():
 	can_move = false
 	can_rotate = false
+	
+	if _interactor:
+		_interactor.disabled = true
 
 func movement_enable():
 	can_move = true
 	can_rotate = true
+	
+	if _interactor:
+		_interactor.disabled = false
+
 
 
 func _physics_process(delta: float) -> void:
@@ -107,7 +115,7 @@ func _physics_process(delta: float) -> void:
 	mesh_body.rotation_degrees.y = lerp(mesh_body.rotation_degrees.y, head.rotation_degrees.y + 90, 0.1)
 	
 	wheel.rotation_degrees.z += (velocity.length() * delta * 35)
-	print(velocity.length()*delta)
+	#print(velocity.length()*delta)
 	
 	camera.fov = lerp(camera.fov, fov_base + fov_move * velocity_clamped, 0.025)
 	move_and_slide()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dargsoj0p7pln" path="res://scripts/base_classes/state_machine.gd" id="1_dovo2"]
 [ext_resource type="Script" uid="uid://bpfi4r4pbjbsb" path="res://scenes/player_in_base/player_in_base.gd" id="1_gmlin"]
+[ext_resource type="Script" uid="uid://b7qrecfxpa2x2" path="res://scripts/base_classes/interact_classes/interactor.gd" id="2_it3ha"]
 [ext_resource type="Texture2D" uid="uid://bsqymoovd5a1p" path="res://assets/player/ui/crosshair.png" id="3_g1dw6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4p8tv"]
@@ -365,6 +366,9 @@ radius = 0.52001953
 radius = 0.35
 height = 0.7
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_8h1wv"]
+radius = 0.25
+
 [sub_resource type="GDScript" id="GDScript_rkbax"]
 script/source = "extends State
 
@@ -462,6 +466,13 @@ script/source = "extends State
 
 @export var player: PlayerInBase
 
+func _ready() -> void:
+	EventBus.player_state_ui.connect(func (en : bool) -> void:
+		if en:
+			state_machine.change_state(\"ui\")
+		else: 
+			state_machine.change_state(\"idle\")
+		)
 
 func enter():
 	player.movement_disable()
@@ -490,10 +501,11 @@ func _physics_process(_delta: float) -> void:
 		prev_state_label.text = \"Current state: %s\" % player.state_machine.prev_state.name
 "
 
-[node name="PlayerInBase" type="CharacterBody3D" unique_id=401696813 node_paths=PackedStringArray("state_machine", "camera", "head", "mesh_body", "wheel")]
+[node name="PlayerInBase" type="CharacterBody3D" unique_id=401696813 node_paths=PackedStringArray("state_machine", "_interactor", "camera", "head", "mesh_body", "wheel")]
 script = ExtResource("1_gmlin")
 speed_run = 10.0
 state_machine = NodePath("StateMachine")
+_interactor = NodePath("Head/Camera3D/Interactor")
 camera = NodePath("Head/Camera3D")
 head = NodePath("Head")
 mesh_body = NodePath("MeshBody")
@@ -584,8 +596,10 @@ mesh = SubResource("SphereMesh_kqu6x")
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=1236099094]
 
-[node name="RaycastInteraction" type="RayCast3D" parent="Head/Camera3D" unique_id=181959344]
+[node name="Interactor" type="ShapeCast3D" parent="Head/Camera3D" unique_id=1691684127]
+shape = SubResource("SphereShape3D_8h1wv")
 target_position = Vector3(0, 0, -1.5)
+script = ExtResource("2_it3ha")
 
 [node name="StateMachine" type="Node" parent="." unique_id=1325385735 node_paths=PackedStringArray("init_state")]
 script = ExtResource("1_dovo2")
@@ -609,8 +623,9 @@ cam_shake_time = 0.2
 script = SubResource("GDScript_g6k8r")
 player = NodePath("../..")
 
-[node name="UI" type="Node" parent="StateMachine" unique_id=1214025327]
+[node name="UI" type="Node" parent="StateMachine" unique_id=1214025327 node_paths=PackedStringArray("player")]
 script = SubResource("GDScript_gmlin")
+player = NodePath("../..")
 metadata/_custom_type_script = "uid://10pyhf7ptwpk"
 
 [node name="DebugLayer" type="CanvasLayer" parent="." unique_id=1029126888 node_paths=PackedStringArray("player", "velocity_label", "speed_label", "current_state_label", "prev_state_label")]
