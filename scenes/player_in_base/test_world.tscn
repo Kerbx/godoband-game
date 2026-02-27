@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://buhcdvc776pen" path="res://scenes/player_in_base/player_in_base.tscn" id="1_2nnkd"]
 [ext_resource type="PackedScene" uid="uid://dttd472nm4xp8" path="res://scenes/terminal/terminal.tscn" id="2_qnwd6"]
-[ext_resource type="PackedScene" uid="uid://bat8ondx0bdqh" path="res://scenes/shredder_tier1/shredder_tier1.tscn" id="3_jcwyk"]
+[ext_resource type="PackedScene" uid="uid://c448wpi02t6fs" path="res://assets/props/shredder_tier1/shreder.glb" id="3_51awp"]
+[ext_resource type="PackedScene" uid="uid://dkw3a4g0ebyve" path="res://assets/props/smelter/smelter.glb" id="4_me0wh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xywji"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -72,16 +73,6 @@ transform = Transform3D(1.9106855e-15, 4.371139e-08, -1, 1, -4.371139e-08, 0, -4
 use_collision = true
 size = Vector3(1.4995728, 2.758789, 1.4472656)
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=989941529]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3.2470038, 2.0183868, 5.486748)
-use_collision = true
-size = Vector3(3.9408264, 1.7905273, 1.8027344)
-
-[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=1899859667]
-transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 3.2470038, 2.0183868, -10.19162)
-use_collision = true
-size = Vector3(3.9408264, 1.7905273, 1.8027344)
-
 [node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=1438357737]
 transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 14.762976, 2.0183868, -1.4505816)
 use_collision = true
@@ -117,5 +108,8 @@ omni_range = 8.587352
 [node name="Terminal" parent="." unique_id=2050385956 instance=ExtResource("2_qnwd6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2094674, 0.038940668, -14.109924)
 
-[node name="shredder_tier1" parent="." unique_id=1042572349 instance=ExtResource("3_jcwyk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.359777, -0.008289099, 1.8823547)
+[node name="shreder" parent="." unique_id=1587938983 instance=ExtResource("3_51awp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6641083, 0.10901511, 6.562358)
+
+[node name="smelter" parent="." unique_id=774875115 instance=ExtResource("4_me0wh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0259514, 0.079004705, -10.777342)
