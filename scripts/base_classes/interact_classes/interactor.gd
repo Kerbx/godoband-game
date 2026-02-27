@@ -75,7 +75,7 @@ func _update_input() -> void:
 ## Emits UI progress updates each frame and executes completed actions,
 ## then removes them from [member _hold_states].
 func _handle_hold(delta : float) -> void:
-	var completed_actions = []
+	var completed_actions : Array = []
 
 	for action_name in _hold_states.keys():
 		if not action_name in _hold_states:
@@ -134,7 +134,7 @@ func _try_start(input_type) -> void:
 	
 	var actions := _collect_actions(target, input_type)
 	
-	if actions.size() == 0:
+	if actions.is_empty():
 		return
 	
 	_is_tracking = true

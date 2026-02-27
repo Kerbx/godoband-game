@@ -17,7 +17,6 @@ func phyisic_update(_delta):
 		state_machine.change_state("idle_state")
 
 func exit():
-	
 	if is_instance_valid(CAMERA_TWEENER):
 		await CAMERA_TWEENER.play(true, current_camera)
 	EventBus.player_state_ui.emit(false)
