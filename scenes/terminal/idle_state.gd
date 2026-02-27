@@ -1,4 +1,4 @@
 extends BaseTerminalState
 
 func enter():
-	INPUT_THING.disabled = true
+	KEYBOARD_INPUT.disabled = true

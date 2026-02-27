@@ -1,7 +1,7 @@
 extends InteractionAction
 
 func _init() -> void:
-	prompt_text = "Open Terminal"
+	prompt_text = "Delete Terminal"
 
 func execute(_interactor: Node) -> void:
-	owner.state_machine.change_state("active_state")
+	owner.queue_free()

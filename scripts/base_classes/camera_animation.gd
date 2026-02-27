@@ -11,13 +11,6 @@ extends Node
 var animated_camera: Camera3D
 var original_camera: Camera3D
 
-# TEST THING
-#func _ready() -> void:
-	#var c_camera : Camera3D = get_viewport().get_camera_3d()
-	#await get_tree().create_timer(1).timeout
-	#play(false, c_camera)
-	#await get_tree().create_timer(10).timeout
-	#play(true, c_camera)
 
 func play(
 	backwards: bool = false,
@@ -48,6 +41,8 @@ func play(
 			camera_fov,
 			animation_duration
 		).set_trans(trans_type).set_ease(ease_type)
+		
+		await tween.finished
 		
 	else:
 		if animated_camera == null:

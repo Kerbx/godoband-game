@@ -16,7 +16,7 @@ func _ready() -> void:
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed:
-		if event.unicode > 0 and not event.is_echo():
+		if event.unicode > 0:
 			input_key.emit(char(event.unicode))
 		else:
 			match event.keycode:

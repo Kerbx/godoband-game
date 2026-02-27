@@ -13,19 +13,20 @@
 [ext_resource type="Script" uid="uid://b88eomu0kt2dt" path="res://scenes/terminal/active_state.gd" id="9_dq3k5"]
 [ext_resource type="Script" uid="uid://b4rbt2jaeci50" path="res://scripts/base_classes/camera_animation.gd" id="9_drxfo"]
 [ext_resource type="Script" uid="uid://vtt7bibvggiy" path="res://scripts/base_classes/interact_classes/interactable_object.gd" id="10_7eo3p"]
+[ext_resource type="Script" uid="uid://cy6weibmv1acm" path="res://scenes/terminal/interaсtion_delete.gd" id="12_3wu5g"]
 [ext_resource type="Script" uid="uid://ce7og5svm4oao" path="res://scenes/terminal/interaction_open_terminal.gd" id="12_fp2rj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_drxfo"]
 size = Vector3(1, 2, 1)
 
-[node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("input_thing", "input_label", "log_rich_text_label", "camera_placement", "state_machine")]
+[node name="Terminal" type="Node3D" unique_id=2050385956 node_paths=PackedStringArray("keyboard_input", "input_label", "output_log", "camera_tweener", "state_machine")]
 script = ExtResource("1_2y7k8")
-input_thing = NodePath("UnhandledKeyboardInput")
-input_label = NodePath("SubViewport/terminal_ui/VBoxContainer/Label")
-log_rich_text_label = NodePath("SubViewport/terminal_ui/VBoxContainer/RichTextLabel")
-camera_placement = NodePath("camera_placement")
-state_machine = NodePath("state_machine")
 commands = Array[ExtResource("2_171q7")]([ExtResource("3_chhtq"), ExtResource("4_drxfo"), ExtResource("5_2jfs2")])
+keyboard_input = NodePath("UnhandledKeyboardInput")
+input_label = NodePath("SubViewport/terminal_ui/VBoxContainer/Label")
+output_log = NodePath("SubViewport/terminal_ui/VBoxContainer/RichTextLabel")
+camera_tweener = NodePath("camera_tweener")
+state_machine = NodePath("state_machine")
 
 [node name="UnhandledKeyboardInput" type="Node" parent="." unique_id=1038186003]
 script = ExtResource("2_0uvmq")
@@ -51,7 +52,15 @@ script = ExtResource("10_7eo3p")
 [node name="interaction_open_terminal" type="Node" parent="InteractableObject" unique_id=14863548]
 script = ExtResource("12_fp2rj")
 action_name = &"Open Terminal"
+prompt_text = "Open Terminal"
 hold_duration = 0.25
+
+[node name="interaction_delete_terminal" type="Node" parent="InteractableObject" unique_id=313027998]
+script = ExtResource("12_3wu5g")
+action_name = &"Delete Terminal"
+prompt_text = "Delete Terminal"
+interaction = 1
+hold_duration = 1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableObject" unique_id=353313063]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
@@ -70,7 +79,7 @@ autowrap_mode = 1
 [node name="model" parent="." unique_id=94069392 instance=ExtResource("3_m4hbx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.59999996, 0.49999997)
 
-[node name="camera_placement" type="Marker3D" parent="." unique_id=1193700963]
+[node name="camera_tweener" type="Marker3D" parent="." unique_id=1193700963]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 0.9848077, 0.17364818, 0, -0.17364818, 0.9848077, 0, 1.8000001, 0.7)
 script = ExtResource("9_drxfo")
