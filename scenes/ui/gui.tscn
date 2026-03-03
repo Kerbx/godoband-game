@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dcl1xxje2pex1" path="res://scripts/base_classes/ui/ScrollContainerMouse.gd" id="4_8nfk8"]
 [ext_resource type="PackedScene" uid="uid://dj3g0pftrc1i6" path="res://scenes/ui/inventory_item.tscn" id="5_3nifv"]
 [ext_resource type="Script" uid="uid://ptwfihn8uuqh" path="res://scenes/ui/interaction_promts.gd" id="6_kb6ab"]
+[ext_resource type="Script" uid="uid://dpo6mv3g8lv28" path="res://scenes/ui/robotStatsUI.gd" id="6_o64uq"]
 [ext_resource type="PackedScene" uid="uid://1jdmuo76qoik" path="res://scenes/ui/interact/interact_prompt.tscn" id="6_suhd1"]
 
 [sub_resource type="Gradient" id="Gradient_bb880"]
@@ -154,6 +155,7 @@ horizontal_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer" unique_id=1755797604]
 layout_mode = 2
 size_flags_horizontal = 10
+script = ExtResource("6_o64uq")
 
 [node name="Control" type="Control" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer" unique_id=1170004364]
 layout_mode = 2
@@ -165,7 +167,8 @@ size_flags_horizontal = 10
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.75
 
-[node name="HealthBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1807211082]
+[node name="health_bar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1807211082]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
@@ -176,7 +179,7 @@ texture_over = SubResource("GradientTexture2D_suhd1")
 texture_progress = SubResource("GradientTexture2D_kb6ab")
 tint_progress = Color(1, 0, 0, 1)
 
-[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/HealthBar" unique_id=497978452]
+[node name="Label3" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/health_bar" unique_id=497978452]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -196,7 +199,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 clip_text = true
 
-[node name="OilBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=822191827]
+[node name="lube_bar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=822191827]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
@@ -207,7 +211,7 @@ texture_over = SubResource("GradientTexture2D_o64uq")
 texture_progress = SubResource("GradientTexture2D_kb6ab")
 tint_progress = Color(0, 0, 1, 1)
 
-[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/OilBar" unique_id=1485510421]
+[node name="Label" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/lube_bar" unique_id=1485510421]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -227,7 +231,8 @@ vertical_alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=778116269]
 layout_mode = 2
 
-[node name="FuelBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=338285725]
+[node name="energy_bar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=338285725]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
@@ -239,7 +244,7 @@ texture_over = SubResource("GradientTexture2D_n02pe")
 texture_progress = SubResource("GradientTexture2D_kb6ab")
 tint_progress = Color(0, 1, 0, 1)
 
-[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/FuelBar" unique_id=1179634274]
+[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/energy_bar" unique_id=1179634274]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -257,7 +262,8 @@ label_settings = SubResource("LabelSettings_8nfk8")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ReserveBar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=833263285]
+[node name="reserve_bar" type="TextureProgressBar" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=833263285]
+unique_name_in_owner = true
 texture_filter = 1
 custom_minimum_size = Vector2(50, 25)
 layout_mode = 2
@@ -270,7 +276,7 @@ texture_over = SubResource("GradientTexture2D_suhd1")
 texture_progress = SubResource("GradientTexture2D_kb6ab")
 tint_progress = Color(1, 0.8352941, 0, 1)
 
-[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/ReserveBar" unique_id=625966933]
+[node name="Label2" type="Label" parent="CAspectRatioContainer/Margin/ActualUI/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/reserve_bar" unique_id=625966933]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,11 +293,12 @@ vertical_alignment = 1
 layout_mode = 2
 
 [node name="InteractionPrompts" type="VBoxContainer" parent="CAspectRatioContainer/Control" unique_id=1466843442]
-layout_mode = 0
-anchor_left = 0.5859375
-anchor_top = 0.41666567
-anchor_right = 0.8203125
-anchor_bottom = 0.8541711
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5421875
+anchor_top = 0.50138897
+anchor_right = 0.7765625
+anchor_bottom = 0.9388944
 script = ExtResource("6_kb6ab")
 prompt_scene = ExtResource("6_suhd1")
 metadata/_edit_use_anchors_ = true
