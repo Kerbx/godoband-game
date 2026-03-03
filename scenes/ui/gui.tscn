@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dcl1xxje2pex1" path="res://scripts/base_classes/ui/ScrollContainerMouse.gd" id="4_8nfk8"]
 [ext_resource type="PackedScene" uid="uid://dj3g0pftrc1i6" path="res://scenes/ui/inventory_item.tscn" id="5_3nifv"]
 [ext_resource type="Script" uid="uid://ptwfihn8uuqh" path="res://scenes/ui/interaction_promts.gd" id="6_kb6ab"]
-[ext_resource type="Script" uid="uid://dpo6mv3g8lv28" path="res://scenes/ui/robotStatsUI.gd" id="6_o64uq"]
+[ext_resource type="Script" uid="uid://dpo6mv3g8lv28" path="res://scenes/ui/robot_stats_ui.gd" id="6_o64uq"]
 [ext_resource type="PackedScene" uid="uid://1jdmuo76qoik" path="res://scenes/ui/interact/interact_prompt.tscn" id="6_suhd1"]
 
 [sub_resource type="Gradient" id="Gradient_bb880"]
