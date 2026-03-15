@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://csu1i8v0l6vjy"]
+
+[ext_resource type="Texture2D" uid="uid://ci8376mo1ux43" path="res://assets/environments/NightSkyHDRI001_1K/NightSkyHDRI001_1K_HDR.exr" id="1_3i6pn"]
+[ext_resource type="PackedScene" uid="uid://rq0jxm0x20so" path="res://scenes/player_outside_base/player_outside_base.tscn" id="2_3i6pn"]
+[ext_resource type="PackedScene" uid="uid://dxrqtbqxao3n8" path="res://scenes/player_outside_base/camera_3d.tscn" id="3_3i6pn"]
+
+[sub_resource type="Sky" id="Sky_3i6pn"]
+
+[sub_resource type="Environment" id="Environment_2x50u"]
+background_mode = 1
+sky = SubResource("Sky_3i6pn")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hiok"]
+shading_mode = 0
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
+albedo_texture = ExtResource("1_3i6pn")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n61wb"]
+
+[node name="test_world" type="Node3D" unique_id=1652868950]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1456073443]
+environment = SubResource("Environment_2x50u")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=998982090]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=948207931]
+transform = Transform3D(117.11707, 0, 0, 0, 66.712425, 0, 0, 0, 66.712425, 0, -9.069815, 0)
+material_override = SubResource("StandardMaterial3D_6hiok")
+mesh = SubResource("PlaneMesh_n61wb")
+
+[node name="player_outside_base" parent="." unique_id=912129643 instance=ExtResource("2_3i6pn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7926805, 0)
+
+[node name="Camera3D" parent="." unique_id=1249510142 node_paths=PackedStringArray("follow_object") instance=ExtResource("3_3i6pn")]
+projection = 0
+follow_object = NodePath("../player_outside_base")
