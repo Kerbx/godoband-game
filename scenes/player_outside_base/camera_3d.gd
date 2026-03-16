@@ -1,4 +1,5 @@
 extends Camera3D
+class_name FollowingCamera
 
 @export var follow_object: PlayerOutsideBase
 @export var height: float = 10

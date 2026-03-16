@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ci8376mo1ux43" path="res://assets/environments/NightSkyHDRI001_1K/NightSkyHDRI001_1K_HDR.exr" id="1_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://rq0jxm0x20so" path="res://scenes/player_outside_base/player_outside_base.tscn" id="2_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dxrqtbqxao3n8" path="res://scenes/player_outside_base/camera_3d.tscn" id="3_3i6pn"]
+[ext_resource type="PackedScene" uid="uid://dlnbun5mqcyj5" path="res://scenes/ui/offscreen_pointer.tscn" id="4_hmwf3"]
 
 [sub_resource type="Sky" id="Sky_3i6pn"]
 
@@ -20,6 +21,8 @@ albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
 albedo_texture = ExtResource("1_3i6pn")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n61wb"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_3i6pn"]
 
 [node name="test_world" type="Node3D" unique_id=1652868950]
 
@@ -39,5 +42,18 @@ mesh = SubResource("PlaneMesh_n61wb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7926805, 0)
 
 [node name="Camera3D" parent="." unique_id=1249510142 node_paths=PackedStringArray("follow_object") instance=ExtResource("3_3i6pn")]
-projection = 0
 follow_object = NodePath("../player_outside_base")
+
+[node name="Base" type="MeshInstance3D" parent="." unique_id=1916833237]
+transform = Transform3D(6.060256, 0, 0, 0, 5.914744, 0, 0, 0, 6.3703074, -6.5413227, 0, -4.857954)
+mesh = SubResource("TorusMesh_3i6pn")
+
+[node name="Label3D" type="Label3D" parent="Base" unique_id=1751812420]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.5042962, 0)
+billboard = 1
+no_depth_test = true
+text = "BASE"
+
+[node name="OffscreenPointerLayer" parent="." unique_id=1704889967 node_paths=PackedStringArray("base_object") instance=ExtResource("4_hmwf3")]
+follow_viewport_enabled = true
+base_object = NodePath("../Base")

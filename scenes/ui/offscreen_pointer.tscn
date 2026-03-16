@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://dlnbun5mqcyj5"]
+
+[ext_resource type="Script" uid="uid://bhnyfhknvm4cu" path="res://scenes/ui/offscreen_pointer.gd" id="2_4md1j"]
+[ext_resource type="Texture2D" uid="uid://df8iskehn75n8" path="res://icon.svg" id="2_hol1e"]
+
+[node name="OffscreenPointerLayer" type="CanvasLayer" unique_id=1704889967]
+script = ExtResource("2_4md1j")
+
+[node name="Control" type="Control" parent="." unique_id=1431916951]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Line2D" type="Line2D" parent="Control" unique_id=1788780213]
+points = PackedVector2Array(-98.81, 32, 1875, 32)
+width = 2.29
+default_color = Color(0, 1, 1, 1)
+
+[node name="Line2D2" type="Line2D" parent="Control" unique_id=996168411]
+position = Vector2(0, 854)
+rotation = -1.5707964
+points = PackedVector2Array(-98.81, 32, 1875, 32)
+width = 2.29
+default_color = Color(0, 1, 1, 1)
+
+[node name="pointer" type="TextureRect" parent="." unique_id=1983979778]
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_hol1e")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="pointer" unique_id=851643020]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -11.5
+offset_right = 16.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 4
+text = "123"
+horizontal_alignment = 1
+vertical_alignment = 1
