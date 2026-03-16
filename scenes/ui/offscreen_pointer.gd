@@ -18,7 +18,7 @@ func _ready() -> void:
 	viewport_size = get_viewport().size
 	viewport_center = viewport_size / 2
 	max_pointer_pos = viewport_center - pointer_offset
-	pointer_offset = Vector2(16, 16)
+	pointer_offset = Vector2(32, -32)
 
 var screen_pos: Vector2 = Vector2.ZERO
 var is_on_screen: bool = true
@@ -40,7 +40,7 @@ func _process(delta: float) -> void:
 		var angle = Vector2.UP.angle_to(screen_pos)
 		pointer.rotation = angle
 		
-		pointer.set_global_position((viewport_center + screen_pos))
+		pointer.set_global_position((viewport_center + screen_pos - pointer_offset))
 		label.text = str(snapped(camera.follow_object.global_position.distance_to(base_object.global_position), 0.1))
 		
 		
