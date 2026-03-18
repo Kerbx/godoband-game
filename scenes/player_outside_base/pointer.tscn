@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c3kkcedbuwo6r"]
+
+[ext_resource type="Script" uid="uid://0fqubl2hwg03" path="res://scenes/player_outside_base/pointer.gd" id="1_2up7t"]
+[ext_resource type="Texture2D" uid="uid://bwonavhwsag4r" path="res://assets/ui/pointer.png" id="2_aenj8"]
+
+[node name="Pointer" type="Node3D" unique_id=1534785292]
+script = ExtResource("1_2up7t")
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1511779664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+flip_v = true
+pixel_size = 0.004
+axis = 1
+double_sided = false
+no_depth_test = true
+texture = ExtResource("2_aenj8")
+
+[node name="Label3D" type="Label3D" parent="Sprite3D" unique_id=1462591977]
+billboard = 1
+no_depth_test = true
+render_priority = 2
+outline_render_priority = 1
+text = "123"
+font_size = 184
+outline_size = 39

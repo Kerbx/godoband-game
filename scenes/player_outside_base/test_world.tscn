@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://rq0jxm0x20so" path="res://scenes/player_outside_base/player_outside_base.tscn" id="2_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dxrqtbqxao3n8" path="res://scenes/player_outside_base/camera_3d.tscn" id="3_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dlnbun5mqcyj5" path="res://scenes/ui/offscreen_pointer.tscn" id="4_hmwf3"]
+[ext_resource type="PackedScene" uid="uid://c3kkcedbuwo6r" path="res://scenes/player_outside_base/pointer.tscn" id="5_1sw6s"]
 
 [sub_resource type="Sky" id="Sky_3i6pn"]
 
@@ -55,5 +56,10 @@ no_depth_test = true
 text = "BASE"
 
 [node name="OffscreenPointerLayer" parent="." unique_id=1704889967 node_paths=PackedStringArray("base_object") instance=ExtResource("4_hmwf3")]
+visible = false
 follow_viewport_enabled = true
 base_object = NodePath("../Base")
+
+[node name="Pointer" parent="." unique_id=1534785292 node_paths=PackedStringArray("ship", "station") instance=ExtResource("5_1sw6s")]
+ship = NodePath("../player_outside_base")
+station = NodePath("../Base")
