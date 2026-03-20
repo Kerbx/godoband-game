@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://csu1i8v0l6vjy"]
 
-[ext_resource type="Texture2D" uid="uid://ci8376mo1ux43" path="res://assets/environments/NightSkyHDRI001_1K/NightSkyHDRI001_1K_HDR.exr" id="1_3i6pn"]
+[ext_resource type="Shader" uid="uid://7haneh1sssbv" path="res://assets/shaders/space.gdshader" id="2_1sw6s"]
 [ext_resource type="PackedScene" uid="uid://rq0jxm0x20so" path="res://scenes/player_outside_base/player_outside_base.tscn" id="2_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dxrqtbqxao3n8" path="res://scenes/player_outside_base/camera_3d.tscn" id="3_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dlnbun5mqcyj5" path="res://scenes/ui/offscreen_pointer.tscn" id="4_hmwf3"]
@@ -10,18 +10,20 @@
 
 [sub_resource type="Environment" id="Environment_2x50u"]
 background_mode = 1
+background_color = Color(0.16924536, 0.16924527, 0.16924521, 1)
 sky = SubResource("Sky_3i6pn")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hiok"]
-shading_mode = 0
-diffuse_mode = 3
-specular_mode = 1
-albedo_color = Color(0.4390491, 0.43904912, 0.43904912, 1)
-albedo_texture = ExtResource("1_3i6pn")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2x50u"]
+render_priority = 0
+shader = ExtResource("2_1sw6s")
+shader_parameter/uv_scale = 10.0
+shader_parameter/star_density = 0.2
+shader_parameter/star_size = 0.38000001735148004
+shader_parameter/star_colors = PackedColorArray(1, 1, 1, 1, 0.99160606, 1, 0.4961443, 1, 0.77360445, 0.88936067, 1, 1, 0.9068404, 0.83902115, 1, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_n61wb"]
+[sub_resource type="PlaneMesh" id="PlaneMesh_hmwf3"]
 
 [sub_resource type="TorusMesh" id="TorusMesh_3i6pn"]
 
@@ -34,13 +36,13 @@ environment = SubResource("Environment_2x50u")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=948207931]
-transform = Transform3D(117.11707, 0, 0, 0, 66.712425, 0, 0, 0, 66.712425, 0, -9.069815, 0)
-material_override = SubResource("StandardMaterial3D_6hiok")
-mesh = SubResource("PlaneMesh_n61wb")
-
 [node name="player_outside_base" parent="." unique_id=912129643 instance=ExtResource("2_3i6pn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7926805, 0)
+
+[node name="space" type="MeshInstance3D" parent="player_outside_base" unique_id=1251568410]
+transform = Transform3D(5.9159713, 0, 0, 0, -2.5859532e-07, -5.9159713, 0, 5.9159713, -2.5859532e-07, 0, -2, 0)
+material_override = SubResource("ShaderMaterial_2x50u")
+mesh = SubResource("PlaneMesh_hmwf3")
 
 [node name="Camera3D" parent="." unique_id=1249510142 node_paths=PackedStringArray("follow_object") instance=ExtResource("3_3i6pn")]
 follow_object = NodePath("../player_outside_base")
