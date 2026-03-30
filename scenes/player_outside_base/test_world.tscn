@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dxrqtbqxao3n8" path="res://scenes/player_outside_base/camera_3d.tscn" id="3_3i6pn"]
 [ext_resource type="PackedScene" uid="uid://dlnbun5mqcyj5" path="res://scenes/ui/offscreen_pointer.tscn" id="4_hmwf3"]
 [ext_resource type="PackedScene" uid="uid://c3kkcedbuwo6r" path="res://scenes/player_outside_base/pointer.tscn" id="5_1sw6s"]
+[ext_resource type="PackedScene" uid="uid://cxoxmv08kgo8p" path="res://assets/props/asteroid_generator/asteroid.tscn" id="6_2x50u"]
 
 [sub_resource type="Sky" id="Sky_3i6pn"]
 
@@ -38,14 +39,14 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="player_outside_base" parent="." unique_id=912129643 instance=ExtResource("2_3i6pn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7926805, 0)
 
 [node name="space" type="MeshInstance3D" parent="player_outside_base" unique_id=1251568410]
-transform = Transform3D(23.308216, 0, 0, 0, 23.308216, 0, 0, 0, 23.308216, 0, -2, 0)
+transform = Transform3D(49.986874, 0.45402363, -1.0517979, -0.4461474, 49.996574, 0.3785164, 1.0551629, -0.36903223, 49.987503, 0, -5.2634993, 0)
 material_override = SubResource("ShaderMaterial_2x50u")
 mesh = SubResource("PlaneMesh_hmwf3")
 
-[node name="Camera3D" parent="." unique_id=1249510142 node_paths=PackedStringArray("follow_object") instance=ExtResource("3_3i6pn")]
+[node name="Camera" parent="." unique_id=1249510142 node_paths=PackedStringArray("follow_object") instance=ExtResource("3_3i6pn")]
+fov = 60.0
 follow_object = NodePath("../player_outside_base")
 
 [node name="Base" type="MeshInstance3D" parent="." unique_id=1916833237]
@@ -66,3 +67,18 @@ base_object = NodePath("../Base")
 [node name="Pointer" parent="." unique_id=1534785292 node_paths=PackedStringArray("ship", "station") instance=ExtResource("5_1sw6s")]
 ship = NodePath("../player_outside_base")
 station = NodePath("../Base")
+
+[node name="asteroid" parent="." unique_id=1122756638 instance=ExtResource("6_2x50u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.426052, 0, -10.537519)
+
+[node name="asteroid2" parent="." unique_id=109821282 instance=ExtResource("6_2x50u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6371737, 0, 9.262058)
+
+[node name="asteroid3" parent="." unique_id=1708212187 instance=ExtResource("6_2x50u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.249754, 0, 11.511791)
+
+[node name="asteroid4" parent="." unique_id=2114592094 instance=ExtResource("6_2x50u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.74577, -1.1920929e-07, -18.289396)
+
+[connection signal="interact_mode_enter" from="player_outside_base" to="player_outside_base" method="_on_interact_mode_enter"]
+[connection signal="interact_mode_enter" from="player_outside_base" to="Camera" method="_on_player_outside_base_interact_mode_enter"]

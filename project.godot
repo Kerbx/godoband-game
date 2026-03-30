@@ -39,6 +39,15 @@ gdscript/warnings/unused_signal=0
 window/stretch/aspect="ignore"
 window/simulation/generate_all_kinematic_contacts=true
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "red",
+"res://scenes/": "green",
+"res://scripts/": "teal"
+}
+
 [input]
 
 move_forward={

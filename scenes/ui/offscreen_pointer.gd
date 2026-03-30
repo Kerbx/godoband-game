@@ -52,4 +52,4 @@ func _process(delta: float) -> void:
 		label.text = str(snapped(camera.follow_object.global_position.distance_to(base_object.global_position), 0.1))
 		
 		
-		print(viewport_size, ' ', pointer.global_position)
+		

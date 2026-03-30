@@ -6,6 +6,8 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nv161"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_nvdje"]
+
 [node name="player_outside_base" type="CharacterBody3D" unique_id=912129643 node_paths=PackedStringArray("model")]
 script = ExtResource("1_nvdje")
 model = NodePath("MeshInstance3D")
@@ -20,3 +22,7 @@ shape = SubResource("BoxShape3D_nv161")
 target_position = Vector3(0, 0, -5)
 debug_shape_custom_color = Color(1, 0.69411767, 0, 1)
 debug_shape_thickness = 5
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=107004336]
+transform = Transform3D(0.44439328, 0, 0, 0, 0.42603076, 0, 0, 0, 1, 0, 0, -0.33130598)
+mesh = SubResource("BoxMesh_nvdje")

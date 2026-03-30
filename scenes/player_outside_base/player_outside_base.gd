@@ -1,8 +1,10 @@
 extends CharacterBody3D
 class_name PlayerOutsideBase
 
+signal interact_mode_enter(asteroid: Asteroid)
+
 @export var speed = 5.0
-@export var lerp_speed = 0.5
+@export var lerp_speed = 0.7
 @export var model: Node3D
 
 
@@ -26,3 +28,8 @@ func _physics_process(delta: float) -> void:
 	rotation.y = lerp_angle(rotation.y, deg_to_rad(rotation_degrees.y + -rotation_dir), lerp_speed*200*delta)
 	
 	move_and_slide()
+
+
+#func _on_interact_mode_enter(asteroid: Asteroid) -> void:
+	#cameras['up'].current = false
+	#cameras['back'].current = true
