@@ -12,7 +12,8 @@ var direction: Vector3 = Vector3.ZERO
 var on_orbit: bool = false
 
 var orbit_center: Vector3
-var rotation_speed = 1
+var rotation_speed = 10
+var current_angle = 0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -33,9 +34,14 @@ func _physics_process(delta: float) -> void:
 		rotation.y = lerp_angle(rotation.y, deg_to_rad(rotation_degrees.y + -rotation_dir), lerp_speed*200*delta)
 		
 	else:
+		current_angle += (deg_to_rad(rotation_speed)*delta)
+		var x = orbit_center.x + cos(0 + current_angle) * 5 
+		var z = orbit_center.z + sin(0 + current_angle) * 5 
+		global_position = Vector3(x, orbit_center.y,  z)
 		look_at(orbit_center)
 		
 	move_and_slide()
+		
 
 
 #func _on_interact_mode_enter(asteroid: Asteroid) -> void:
