@@ -1,7 +1,7 @@
 extends Node3D
 class_name Asteroid
 
-@export var seed:int
+@export var _seed:int
 @export var color_ramp:Gradient
 @export var textures:Array[Texture2D]
 #@export var apply:bool = false
@@ -18,10 +18,10 @@ class_name Asteroid
 
 func _apply():
 	##Generates new asteroid
-	
+	_seed = randi() * randi_range(-1, 1)
 	var new_noise:NoiseTexture2D = NoiseTexture2D.new()
 	new_noise.noise = FastNoiseLite.new()
-	new_noise.noise.seed = seed
+	new_noise.noise.seed = _seed
 	new_noise.noise.frequency = 0.07
 	new_noise.color_ramp = color_ramp
 	new_noise.in_3d_space = true

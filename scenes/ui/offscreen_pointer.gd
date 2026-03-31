@@ -29,6 +29,7 @@ func _ready() -> void:
 
 var screen_pos: Vector2 = Vector2.ZERO
 var is_on_screen: bool = true
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	is_on_screen = camera.is_position_in_frustum(base_object.global_position)
 

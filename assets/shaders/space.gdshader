@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded, vertex_lighting;
+render_mode unshaded;
 
 uniform float uv_scale : hint_range(0.1, 50.0) = 10.0;
 uniform float star_density : hint_range(0.0, 1.0) = 0.2;
@@ -19,6 +19,8 @@ void vertex() {
 
 void fragment() {
 	vec2 pos = world_pos.xz * uv_scale;
+	//vec3 a = abs(world_pos);
+	//vec2 pos = uv_scale * (a.x > a.y && a.x > a.z ? world_pos.zy : (a.y > a.z ? world_pos.xz : world_pos.xy));
 	
 	vec2 grid_id = floor(pos);
 	vec2 grid_uv = fract(pos) - 0.5; 

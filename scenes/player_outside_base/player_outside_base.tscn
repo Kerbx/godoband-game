@@ -20,9 +20,15 @@ shape = SubResource("BoxShape3D_nv161")
 
 [node name="RayCast3D" type="RayCast3D" parent="." unique_id=1891481088]
 target_position = Vector3(0, 0, -5)
-debug_shape_custom_color = Color(1, 0.69411767, 0, 1)
+debug_shape_custom_color = Color(1, 0.69411767, 0, 0.3372549)
 debug_shape_thickness = 5
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=107004336]
-transform = Transform3D(0.44439328, 0, 0, 0, 0.42603076, 0, 0, 0, 1, 0, 0, -0.33130598)
+transform = Transform3D(0.13424905, 0, -0.258819, 0, 0.12452236, 0, 0.035971925, 0, 0.9659258, -0.30781066, 0, -0.82525873)
 mesh = SubResource("BoxMesh_nvdje")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1105789191]
+transform = Transform3D(0.13424905, 0, 0.258819, 0, 0.12452236, 0, -0.035971925, 0, 0.96592575, 0.308, 0, -0.825)
+mesh = SubResource("BoxMesh_nvdje")
+
+[connection signal="interact_mode_enter" from="." to="." method="_on_interact_mode_enter"]

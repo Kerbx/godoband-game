@@ -37,7 +37,7 @@ radial_segments = 16
 rings = 8
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_h3lvc"]
-radius = 4.879
+radius = 5.0
 
 [sub_resource type="Gradient" id="Gradient_dfpld"]
 offsets = PackedFloat32Array(0.5270758, 0.5306859, 0.6498195, 0.6534296, 0.71480143)
@@ -88,7 +88,6 @@ _data = {
 
 [node name="asteroid" type="Node3D" unique_id=1122756638 node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_h6vsq")
-seed = 134
 color_ramp = SubResource("Gradient_p04vx")
 textures = Array[Texture2D]([ExtResource("4_h3lvc"), ExtResource("2_h6vsq"), ExtResource("3_ibxuj")])
 mesh = NodePath("Cube")

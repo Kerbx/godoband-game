@@ -9,13 +9,14 @@ script = ExtResource("1_2up7t")
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=1511779664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 flip_v = true
-pixel_size = 0.004
+pixel_size = 0.002
 axis = 1
 double_sided = false
 no_depth_test = true
 texture = ExtResource("2_aenj8")
 
 [node name="Label3D" type="Label3D" parent="Sprite3D" unique_id=1462591977]
+pixel_size = 0.0025
 billboard = 1
 no_depth_test = true
 render_priority = 2

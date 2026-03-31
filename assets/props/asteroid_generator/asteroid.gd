@@ -14,10 +14,12 @@ func _ready() -> void:
 
 
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
-	
 	if Input.is_action_just_pressed('interact_primary') and can_interact:
 		print('start minigame')
+		interact.hide()
+		animation_player.stop()
 		player.interact_mode_enter.emit(self)
 
 
