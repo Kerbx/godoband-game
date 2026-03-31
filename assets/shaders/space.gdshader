@@ -1,5 +1,5 @@
 shader_type spatial;
-render_mode unshaded;
+render_mode unshaded, vertex_lighting;
 
 uniform float uv_scale : hint_range(0.1, 50.0) = 10.0;
 uniform float star_density : hint_range(0.0, 1.0) = 0.2;

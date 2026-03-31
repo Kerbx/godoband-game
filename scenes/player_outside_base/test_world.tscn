@@ -19,9 +19,9 @@ glow_enabled = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2x50u"]
 render_priority = 0
 shader = ExtResource("2_1sw6s")
-shader_parameter/uv_scale = 14.59900069019262
-shader_parameter/star_density = 0.002000000095
-shader_parameter/star_size = 0.12000000500148
+shader_parameter/uv_scale = 5.43000025466512
+shader_parameter/star_density = 0.018000000855
+shader_parameter/star_size = 0.02600000053648
 shader_parameter/star_colors_count = 4
 shader_parameter/star_colors = PackedColorArray(1, 1, 1, 1, 0.99160606, 1, 0.4961443, 1, 0.77360445, 0.88936067, 1, 1, 0.9068404, 0.83902115, 1, 1)
 
@@ -41,7 +41,7 @@ shadow_enabled = true
 [node name="player_outside_base" parent="." unique_id=912129643 instance=ExtResource("2_3i6pn")]
 
 [node name="space" type="MeshInstance3D" parent="player_outside_base" unique_id=1251568410]
-transform = Transform3D(49.986874, 0.45402363, -1.0517979, -0.4461474, 49.996574, 0.3785164, 1.0551629, -0.36903223, 49.987503, 0, -5.2634993, 0)
+transform = Transform3D(49.999996, 0, 0, 0, 49.999996, 0, 0, 0, 50, 0, -5.2634993, 0)
 material_override = SubResource("ShaderMaterial_2x50u")
 mesh = SubResource("PlaneMesh_hmwf3")
 
